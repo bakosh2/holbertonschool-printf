@@ -78,7 +78,7 @@ int print_binary(unsigned int n)
 	{
 		if (n & mask)
 		{
-			_putchar('1')
+			_putchar('1');
 				count++;
 			started = 1;
 		}
