@@ -77,3 +77,30 @@ For unknown specifiers:
 Returns:
 - Total number of characters printed.
 - Returns -1 for invalid input formats.
+
+
+
+
+
+
+Explanation (for man_3_printf)
+
+The _printf function is a custom implementation of the standard C printf function, developed as part of the Holberton School curriculum. Its primary purpose is to format and print text to the standard output (stdout) using a limited set of conversion specifiers. While it mimics the behavior of the standard printf, it deliberately supports only a restricted subset of features to help students understand low-level output handling, variadic functions, and string parsing.
+
+The function processes the format string one character at a time:
+
+Ordinary characters are written directly to the output using the _putchar function.
+
+Format specifiers, which begin with the % character, trigger special formatting behavior. Each supported specifier is handled by a dedicated helper function:
+
+- %c prints a single character using _putchar.
+- %s prints a string using print_string, handling NULL pointers safely.
+- %d and %i print signed decimal integers using print_number.
+- %% prints a literal percent sign.
+
+Unlike the standard library printf, this _printf does not support advanced features such as flags (+, -, 0, #, space), field width, precision, or length modifiers (h, l, etc.). Its behavior focuses solely on correctly processing the basic specifiers and validating proper format syntax.
+
+If the function encounters a NULL format string or an incomplete specifier (e.g., a trailing %), it returns -1 to indicate an error. Otherwise, it returns the total number of characters printed, excluding the terminating null byte.
+
+
+
