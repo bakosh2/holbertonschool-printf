@@ -1,0 +1,97 @@
+.TH _PRINTF 3 "Nov 25" "Holberton School" "Library Functions Manual"
+
+.SH NAME
+_printf \- produce output according to a format
+
+.SH SYNOPSIS
+.nf
+#include "main.h"
+
+int _printf(const char *format, ...);
+.fi
+
+.SH DESCRIPTION
+the 
+.B _printf()
+function produces formatted output to the standard output stream (stdout).
+It behaves similarly to the standard C library function
+.B printf ,
+but supports a limited set of conversion specifiers as part of the Holberton School project requirements
+
+
+The
+.I format
+string consists of ordinary characters, which are printed as-is, and convension specifiers beginning with the '%' character
+
+The following conversion specifiers are supported:
+
+.TP
+.B %c
+prints a single character
+
+.TP
+.B %s
+prints a string 
+If the passed pointer is NULL, the string "(null)" is printed
+
+.TP
+.B %d
+prints a single decimal integer
+
+.TP
+.B %i
+prints a signed decimal integer (same as %d)
+
+.TP
+.B %%
+prints a litiral percent sign '%'
+
+.TP
+The function does
+.B NOT
+handle the following features:
+
+.IP \(bu 2
+Flag characters (+, space, #, 0, -)
+
+.IP \(bu 2
+Field width
+
+.IP \(bu 2
+Precision
+
+.IP \(bu 2
+Length modifiers (h, l, etc.)
+
+.PP
+If the
+.I format
+string is NULL, or if it contains an incomplete conversion specifier (such as a trailing '%' at the end of the string)
+.B -1
+is returned
+
+.SH RETURN VALUE 
+The function returns the total number of characters printed (excluding the terminating null byte)
+On failure, such as invalid or incomplete format strings, the function returns 
+.B -1
+
+.SH EXAMPLES
+.nf
+_printf("Hello %s!\\n", "World");
+       output: Hello World!
+
+_printf("Character: %c\\n", 'H');
+       output: Character: H
+
+_printf("Number: %d\\n", 1024);
+       output: 1024
+
+_printf("Use %% to print a percent sign.\\n");
+       output: Use % to print a percent sign
+
+_printf("Complete the sentence: you %s nothing, John Snow.\\n", (char *)0);
+       output: Complete the sentence: you (null) nothing, John Snow
+.fi
+
+.SH AUTHORS
+Written by Fai Alsharekh and Ebtihal Alomri.
