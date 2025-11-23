@@ -79,7 +79,7 @@ Returns:
 - Returns -1 for invalid input formats.
 
 Flowchart printf.c file
-![Image](https://github.com/user-attachments/assets/4e4799bb-6461-45dd-b8ef-ac3aba88e7b0)
+![Image](https://github.com/user-attachments/assets/1628a6e3-2abf-423a-8adc-f75335c27a85)
 
 
 Explanation (for man_3_printf)
