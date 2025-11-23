@@ -181,7 +181,6 @@ Flowchart printf.c file
 
 
 
-
 Explanation (for man_3_printf)
 
 The _printf function is a custom implementation of the standard C printf function, developed as part of the Holberton School curriculum. Its primary purpose is to format and print text to the standard output (stdout) using a limited set of conversion specifiers. While it mimics the behavior of the standard printf, it deliberately supports only a restricted subset of features to help students understand low-level output handling, variadic functions, and string parsing.
