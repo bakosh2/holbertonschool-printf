@@ -102,5 +102,4 @@ Unlike the standard library printf, this _printf does not support advanced featu
 If the function encounters a NULL format string or an incomplete specifier (e.g., a trailing %), it returns -1 to indicate an error. Otherwise, it returns the total number of characters printed, excluding the terminating null byte.
 
 Flowchart for man_3_printf
-
-
+![Image](https://github.com/user-attachments/assets/8f32b1e5-6f95-42db-a7e4-e7aeacd50414)
