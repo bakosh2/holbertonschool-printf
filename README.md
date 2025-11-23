@@ -79,49 +79,7 @@ Returns:
 - Returns -1 for invalid input formats.
 
 Flowchart printf.c file
-
-+-------------------------------------+
-|        Start _printf()              |
-+------------------+------------------+
-                   |
-                   v
-( Same steps as Task 0 until '%' is found )
-                   |
-                   v
-+-------------------------------------+
-|  Is specifier 'd' or 'i' ?          |
-+------------------+------------------+
-         | Yes                | No → go back to Task 0 cases
-         v
-+---------------------------------------------+
-|  Get integer using va_arg                   |
-+---------------------------------------------+
-                   |
-                   v
-+---------------------------------------------+
-|  If number < 0 : print '-' and invert num   |
-+---------------------------------------------+
-                   |
-                   v
-+---------------------------------------------+
-| Convert number to digits (loop or recursion)|
-+---------------------------------------------+
-                   |
-                   v
-+---------------------------------------------+
-| Print each digit                            |
-| count += number_of_digits                   |
-+---------------------------------------------+
-                   |
-                   v
-            Return to main loop
-                   |
-                   v
-+---------------------------------------------+
-| End of format ? → return count              |
-+---------------------------------------------+
-
-
+![Image](https://github.com/user-attachments/assets/4e4799bb-6461-45dd-b8ef-ac3aba88e7b0)
 
 
 Explanation (for man_3_printf)
@@ -144,58 +102,5 @@ Unlike the standard library printf, this _printf does not support advanced featu
 If the function encounters a NULL format string or an incomplete specifier (e.g., a trailing %), it returns -1 to indicate an error. Otherwise, it returns the total number of characters printed, excluding the terminating null byte.
 
 Flowchart for man_3_printf
-
-+----------------------------------------+
-|               _printf()                |
-+-------------------+--------------------+
-                    |
-                    v
-+----------------------------------------+
-| Is format NULL ?                        |
-+-------------------+--------------------+
-       | Yes                      | No
-       v                          v
-+--------------+        +---------------------------+
-| return -1    |        | Start parsing format      |
-+--------------+        +-------------+-------------+
-                                     |
-                                     v
-                   +--------------------------------+
-                   | Is current char != '%' ?        |
-                   +-------------+--------------------+
-                                 | Yes
-                                 v
-                   +--------------------------------+
-                   | Print char directly             |
-                   | count++                         |
-                   +-------------+--------------------+
-                                 |
-                                 v
-                          Next character
-                                 |
-                                 v
-                   +--------------------------------+
-                   | Found '%' ?                    |
-                   +-------------+------------------+
-                                 | Yes
-                                 v
-       +------------------+------------------+-------------------+
-       |   %c             |    %s            |      %%           |
-       v                  v                  v
-+-------------+  +----------------+  +---------------------------+
-| print char  |  | print string   |  | print '%'                |
-| count++     |  | count += len   |  | count++                  |
-+-------------+  +----------------+  +---------------------------+
-
-                                 |
-                                 v
-                          Continue parsing
-                                 |
-                                 v
-+------------------------------------------------+
-| End of string reached → return total count     |
-+------------------------------------------------+
-
-
 
 
